@@ -10,6 +10,7 @@
 html{
     padding: 0;
     margin: 0;
+    color: white;
     background-color: #231F20;
     font-family: 'Roboto', sans-serif;
     height: auto;
@@ -22,14 +23,12 @@ html{
 h1{
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
-    color: white;
     font-size: 5rem;
 }
 
 h2{
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
-    color: white;
     font-size: 3rem;
 }
 
@@ -92,6 +91,16 @@ a:visited{
     margin: 7rem 15rem;
     font-family: 'Roboto', sans-serif;
     text-align: center;
+}
+
+.container{
+    font-family: 'Roboto', sans-serif;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.about-us-text{
+    font-size: 1.25rem;
 }
 
 #teams{
