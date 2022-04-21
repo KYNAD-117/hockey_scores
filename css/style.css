@@ -20,6 +20,15 @@ html{
     min-height: 100%;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
 h1{
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
@@ -138,11 +147,9 @@ a:visited{
 
 
 /* ------------------------- FOOTER -------------------------*/
-.footer{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+.footer {
+    margin-top: 2rem;
+    flex-shrink: 0;
 }
 
 .copyright-footer{
