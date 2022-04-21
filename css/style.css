@@ -46,7 +46,7 @@ a:visited{
     text-align: center;
     display: flex;
     background-color: #7C8086;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .menu ul li a{
@@ -61,7 +61,8 @@ a:visited{
 }
 
 .menu ul li a:hover {
-    background-color:#C4C4C4;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 7px;
     color: white;
 }
 
@@ -94,12 +95,14 @@ a:visited{
 }
 
 #teams{
-    width: 25%;
+    width: 25rem;
     height: 2.5rem;
     border-radius: 10px;
-    background-color:#C4C4C4;
+    background-color:#7C8086;
+    color: rgba(255, 255, 255, 0.5);
     margin-bottom: 2rem;
     font-size: 1rem;
+    box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.25);
 }
 
 .choice{
@@ -111,15 +114,16 @@ a:visited{
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     text-transform: uppercase;
-    width: 15%;
+    width: 10rem;
     height: 2.5rem;
     border-radius: 10px;
-    background-color:#C4C4C4;
+    background-color:#7C8086;
+    box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.25);
 }
 
 .save-btn:hover{
     cursor: pointer;
-    background-color: #7C8086;
+    background-color: rgba(0, 0, 0, 0.75);
     color: white;
 }
 
