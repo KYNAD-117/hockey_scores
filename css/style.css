@@ -145,6 +145,64 @@ a:visited{
     color: white;
 }
 
+.eastern-conference{
+    background-color: rgba(167, 18, 29, 0.5);
+    margin: 1rem;
+    padding: .25rem;
+    border-radius: 10px;
+}
+
+.eastern-conference p,
+.western-conference p{
+    /* color: black; */
+    font-size: 1.25rem;    
+}
+
+.western-conference{
+    background-color: rgba(0, 38, 99, 0.5);
+    margin: 1rem;
+    padding: .25rem;
+    border-radius: 10px;
+}
+
+.conf-header{
+    margin: 1.5rem;
+    margin-top: 2rem;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.header-standings{
+    justify-content: space-between;
+    display: flex;
+    margin: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.conf-text{
+    font-style: italic;
+    margin: 1rem;
+}
+
+.e-team{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 3rem;
+    border-bottom: solid black 1px;
+}
+
+/* .win-loss{
+    display: flex;
+    font-style: italic;
+    justify-content: space-between;
+    margin: 1rem;
+} */
 
 /* ------------------------- FOOTER -------------------------*/
 .footer {
