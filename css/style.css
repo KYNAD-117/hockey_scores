@@ -150,11 +150,6 @@ a:visited{
     margin: 1rem;
     padding: .25rem;
     border-radius: 10px;
-}
-
-.eastern-conference p,
-.western-conference p{
-    /* color: black; */
     font-size: 1.25rem;    
 }
 
@@ -163,6 +158,12 @@ a:visited{
     margin: 1rem;
     padding: .25rem;
     border-radius: 10px;
+    font-size: 1.25rem;    
+}
+
+.e-team:last-child,
+.w-team:last-child{
+    border-bottom: none;
 }
 
 .conf-header{
@@ -172,6 +173,7 @@ a:visited{
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: 800;
+    text-shadow: 3px 3px 2px #231F20;
 }
 
 .header-standings{
@@ -181,28 +183,21 @@ a:visited{
     text-transform: uppercase;
     font-weight: 600;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 4fr);
     grid-gap: 10px;
+    text-shadow: 3px 3px 2px #231F20;
 }
 
 .conf-text{
-    font-style: italic;
     margin: 1rem;
 }
 
-.e-team{
+.e-team, .w-team{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 4fr);
     grid-gap: 3rem;
     border-bottom: solid black 1px;
 }
-
-/* .win-loss{
-    display: flex;
-    font-style: italic;
-    justify-content: space-between;
-    margin: 1rem;
-} */
 
 /* ------------------------- FOOTER -------------------------*/
 .footer {

@@ -3,6 +3,7 @@ window.addEventListener("load", () =>{
 let league = "NHL";
 let year = "2021";
 
+//EASTERN
 let estOne = document.querySelector(".e-one");
 let estTwo = document.querySelector(".e-two");
 let estThree = document.querySelector(".e-three");
@@ -71,7 +72,7 @@ let estFourteenWin = document.querySelector(".e-fourteen-win");
 let estFifteenWin = document.querySelector(".e-fifteen-win");
 let estSixteenWin = document.querySelector(".e-sixteen-win");
 
-
+//WESTERN
 let westOne = document.querySelector(".w-one");
 let westTwo = document.querySelector(".w-two");
 let westThree = document.querySelector(".w-three");
@@ -88,6 +89,57 @@ let westThirteen = document.querySelector(".w-thirteen");
 let westFourteen = document.querySelector(".w-fourteen");
 let westFifteen = document.querySelector(".w-fifteen");
 let westSixteen = document.querySelector(".w-sixteen");
+
+let westOnePts = document.querySelector(".w-one-pts");
+let westTwoPts = document.querySelector(".w-two-pts");
+let westThreePts = document.querySelector(".w-three-pts");
+let westFourPts = document.querySelector(".w-four-pts");
+let westFivePts = document.querySelector(".w-five-pts");
+let westSixPts = document.querySelector(".w-six-pts");
+let westSevenPts = document.querySelector(".w-seven-pts");
+let westEightPts = document.querySelector(".w-eight-pts");
+let westNinePts = document.querySelector(".w-nine-pts");
+let westTenPts = document.querySelector(".w-ten-pts");
+let westElevenPts = document.querySelector(".w-eleven-pts");
+let westTwelvePts = document.querySelector(".w-twelve-pts");
+let westThirteenPts = document.querySelector(".w-thirteen-pts");
+let westFourteenPts = document.querySelector(".w-fourteen-pts");
+let westFifteenPts = document.querySelector(".w-fifteen-pts");
+let westSixteenPts = document.querySelector(".w-sixteen-pts");
+
+let westOneLoss = document.querySelector(".w-one-loss");
+let westTwoLoss = document.querySelector(".w-two-loss");
+let westThreeLoss = document.querySelector(".w-three-loss");
+let westFourLoss = document.querySelector(".w-four-loss");
+let westFiveLoss = document.querySelector(".w-five-loss");
+let westSixLoss = document.querySelector(".w-six-loss");
+let westSevenLoss = document.querySelector(".w-seven-loss");
+let westEightLoss = document.querySelector(".w-eight-loss");
+let westNineLoss = document.querySelector(".w-nine-loss");
+let westTenLoss = document.querySelector(".w-ten-loss");
+let westElevenLoss = document.querySelector(".w-eleven-loss");
+let westTwelveLoss = document.querySelector(".w-twelve-loss");
+let westThirteenLoss = document.querySelector(".w-thirteen-loss");
+let westFourteenLoss = document.querySelector(".w-fourteen-loss");
+let westFifteenLoss = document.querySelector(".w-fifteen-loss");
+let westSixteenLoss = document.querySelector(".w-sixteen-loss");
+
+let westOneWin = document.querySelector(".w-one-win");
+let westTwoWin = document.querySelector(".w-two-win");
+let westThreeWin = document.querySelector(".w-three-win");
+let westFourWin = document.querySelector(".w-four-win");
+let westFiveWin = document.querySelector(".w-five-win");
+let westSixWin = document.querySelector(".w-six-win");
+let westSevenWin = document.querySelector(".w-seven-win");
+let westEightWin = document.querySelector(".w-eight-win");
+let westNineWin = document.querySelector(".w-nine-win");
+let westTenWin = document.querySelector(".w-ten-win");
+let westElevenWin = document.querySelector(".w-eleven-win");
+let westTwelveWin = document.querySelector(".w-twelve-win");
+let westThirteenWin = document.querySelector(".w-thirteen-win");
+let westFourteenWin = document.querySelector(".w-fourteen-win");
+let westFifteenWin = document.querySelector(".w-fifteen-win");
+let westSixteenWin = document.querySelector(".w-sixteen-win");
 
 const options = {
 	method: 'GET',
@@ -189,6 +241,56 @@ fetch(`https://hockey-live-sk-data.p.rapidapi.com/table/${league}/${year}?key=cb
         westFifteen.textContent = data.conference["Western conference"][15].longname;
         westSixteen.textContent = data.conference["Western conference"][16].longname;
 
+        westOnePts.textContent = data.conference["Western conference"][1].points;
+        westTwoPts.textContent = data.conference["Western conference"][2].points;
+        westThreePts.textContent = data.conference["Western conference"][3].points;
+        westFourPts.textContent = data.conference["Western conference"][4].points;
+        westFivePts.textContent = data.conference["Western conference"][5].points;
+        westSixPts.textContent = data.conference["Western conference"][6].points;
+        westSevenPts.textContent = data.conference["Western conference"][7].points;
+        westEightPts.textContent = data.conference["Western conference"][8].points;
+        westNinePts.textContent = data.conference["Western conference"][9].points;
+        westTenPts.textContent = data.conference["Western conference"][10].points;
+        westElevenPts.textContent = data.conference["Western conference"][11].points;
+        westTwelvePts.textContent = data.conference["Western conference"][12].points;
+        westThirteenPts.textContent = data.conference["Western conference"][13].points;
+        westFourteenPts.textContent = data.conference["Western conference"][14].points;
+        westFifteenPts.textContent = data.conference["Western conference"][15].points;
+        westSixteenPts.textContent = data.conference["Western conference"][16].points;
+
+        westOneWin.textContent = data.conference["Western conference"][1].wins;
+        westTwoWin.textContent = data.conference["Western conference"][2].wins;
+        westThreeWin.textContent = data.conference["Western conference"][3].wins;
+        westFourWin.textContent = data.conference["Western conference"][4].wins;
+        westFiveWin.textContent = data.conference["Western conference"][5].wins;
+        westSixWin.textContent = data.conference["Western conference"][6].wins;
+        westSevenWin.textContent = data.conference["Western conference"][7].wins;
+        westEightWin.textContent = data.conference["Western conference"][8].wins;
+        westNineWin.textContent = data.conference["Western conference"][9].wins;
+        westTenWin.textContent = data.conference["Western conference"][10].wins;
+        westElevenWin.textContent = data.conference["Western conference"][11].wins;
+        westTwelveWin.textContent = data.conference["Western conference"][12].wins;
+        westThirteenWin.textContent = data.conference["Western conference"][13].wins;
+        westFourteenWin.textContent = data.conference["Western conference"][14].wins;
+        westFifteenWin.textContent = data.conference["Western conference"][15].wins;
+        westSixteenWin.textContent = data.conference["Western conference"][16].wins;
+
+        westOneLoss.textContent = data.conference["Western conference"][1].losts;
+        westTwoLoss.textContent = data.conference["Western conference"][2].losts;
+        westThreeLoss.textContent = data.conference["Western conference"][3].losts;
+        westFourLoss.textContent = data.conference["Western conference"][4].losts;
+        westFiveLoss.textContent = data.conference["Western conference"][5].losts;
+        westSixLoss.textContent = data.conference["Western conference"][6].losts;
+        westSevenLoss.textContent = data.conference["Western conference"][7].losts;
+        westEightLoss.textContent = data.conference["Western conference"][8].losts;
+        westNineLoss.textContent = data.conference["Western conference"][9].losts;
+        westTenLoss.textContent = data.conference["Western conference"][10].losts;
+        westElevenLoss.textContent = data.conference["Western conference"][11].losts;
+        westTwelveLoss.textContent = data.conference["Western conference"][12].losts;
+        westThirteenLoss.textContent = data.conference["Western conference"][13].losts;
+        westFourteenLoss.textContent = data.conference["Western conference"][14].losts;
+        westFifteenLoss.textContent = data.conference["Western conference"][15].losts;
+        westSixteenLoss.textContent = data.conference["Western conference"][16].losts;
         
     })
 
