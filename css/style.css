@@ -108,6 +108,14 @@ a:visited{
     margin-top: 5%;
 }
 
+.container-schedule{
+    margin-left: 2rem;
+}
+
+.container-schedule h2{
+    letter-spacing: 5px;
+}
+
 .about-us-text{
     font-size: 1.25rem;
 }
