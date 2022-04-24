@@ -207,6 +207,13 @@ a:visited{
     border-bottom: solid black 1px;
 }
 
+.games-tonight{
+    display: grid;
+    grid-template-columns: repeat(4, 4fr);
+    grid-gap: 3rem;
+    background-color: #231F20;
+}
+
 /* ------------------------- FOOTER -------------------------*/
 .footer {
     margin-top: 2rem;

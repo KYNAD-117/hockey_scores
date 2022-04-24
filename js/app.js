@@ -164,29 +164,29 @@ window.addEventListener("load", () =>{
             // console.log(dateToday);
 
             //loop
-            for (const record in data.games) {
-                if(data.games[record]){
-                    // console.log(record); affiche tout les record (0 à 1311)
-                
-                    if(data.games[record].date){
+            for (const idSemaine in data.games) {
+                if(data.games[idSemaine]){                
+                    if(data.games[idSemaine].date){
                         let dateSlice = dateToday.slice(0,10);
-                        let dateSliced = data.games[record].date.slice(0,10)
-
-                        // let timeSliced = data.games[record].date.substring(11);
-                        let timeSlicedSVK = new Date(data.games[record].date);
-                        let timeSlicedMTL = timeSlicedSVK.toLocaleString('ca-CA', {timeZone : 'America/Toronto'})
-                        // console.log(timeSlicedMTL);
-
+                        let dateSliced = data.games[idSemaine].date.slice(0,10)
+                        
                         if(dateSliced == dateSlice){
-                            const addTeam = document.createElement("p");
+                            let timeSlicedMTL = new Date(data.games[idSemaine].date).toLocaleString("en-CA", {timeZone: "Europe/Bratislava", hourCycle: "h23"}).slice(0,17);
+                            const addTeam1 = document.createElement("p");
+                            const addTeam2 = document.createElement("p");
+                            const addVS = document.createElement("p");
                             const addTime = document.createElement("p");
                             // add para pour chaque game
-                            addTeam.textContent = data.games[record].team1long + " VS " + data.games[record].team2long;
+                            addTeam1.textContent = data.games[idSemaine].team1long;
+                            addTeam2.textContent = data.games[idSemaine].team2long;
+                            addVS.textContent = "VS";
 
                             // add para pour chaque time
-                            addTime.textContent = timeSlicedMTL.substring(11);
-
-                            document.querySelector(".games-tonight").appendChild(addTeam);
+                            addTime.textContent = timeSlicedMTL.substring(11) + " PM";
+                            // append dans le div
+                            document.querySelector(".games-tonight").appendChild(addTeam1);
+                            document.querySelector(".games-tonight").appendChild(addVS);
+                            document.querySelector(".games-tonight").appendChild(addTeam2);
                             document.querySelector(".games-tonight").appendChild(addTime);
                         }
                     }
