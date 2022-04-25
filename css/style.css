@@ -209,7 +209,7 @@ a:visited{
 
 .games-tonight{
     display: grid;
-    grid-template-columns: repeat(4, 4fr);
+    grid-template-columns: repeat(4, 4fr 4fr);
     grid-gap: 3rem;
     background-color: #231F20;
 }

@@ -157,10 +157,10 @@ window.addEventListener("load", () =>{
     fetch(URL_SCHEDULE, options)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
 
             // get today's date (converti en h de slovakie)
-            let dateToday = new Date(Date.now() + (3600 * 1000 * 6)).toISOString().split('T')[0];
+            let dateToday = new Date(Date.now() + (3600 * 1000 * 24)).toISOString().split('T')[0];
             // console.log(dateToday);
 
             //loop
@@ -171,7 +171,9 @@ window.addEventListener("load", () =>{
                         let dateSliced = data.games[idSemaine].date.slice(0,10)
                         
                         if(dateSliced == dateSlice){
+                            // Games tonight
                             let timeSlicedMTL = new Date(data.games[idSemaine].date).toLocaleString("en-CA", {timeZone: "Europe/Bratislava", hourCycle: "h23"}).slice(0,17);
+
                             const addTeam1 = document.createElement("p");
                             const addTeam2 = document.createElement("p");
                             const addVS = document.createElement("p");
@@ -180,7 +182,6 @@ window.addEventListener("load", () =>{
                             addTeam1.textContent = data.games[idSemaine].team1long;
                             addTeam2.textContent = data.games[idSemaine].team2long;
                             addVS.textContent = "VS";
-
                             // add para pour chaque time
                             addTime.textContent = timeSlicedMTL.substring(11) + " PM";
                             // append dans le div
@@ -189,6 +190,11 @@ window.addEventListener("load", () =>{
                             document.querySelector(".games-tonight").appendChild(addTeam2);
                             document.querySelector(".games-tonight").appendChild(addTime);
                         }
+                    } else {
+                        // No games tonight
+                        const noGames = document.createElement("p");
+                        noGames.textContent = "No games scheduled tonight...";
+                        document.querySelector(".games-tonight").appendChild(noGames);
                     }
                 }
             }
@@ -200,7 +206,7 @@ window.addEventListener("load", () =>{
     fetch(URL_STANDINGS, options)
         .then(response => response.json())
         .then(data => {
-            // console.log(data)
+            console.log(data)
             // ************************************************************* APPEND-CHILD
             //EASTERN
             estOne.textContent = data.conference["Eastern conference"][1].longname;
