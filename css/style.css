@@ -153,11 +153,16 @@ a:visited{
     color: white;
 }
 
+.container-standings{
+    display: flex;
+}
+
 .eastern-conference{
     background-color: rgba(167, 18, 29, 0.5);
     margin: 1rem;
     padding: .25rem;
     border-radius: 10px;
+    box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.25);
     font-size: 1.25rem;    
 }
 
@@ -166,12 +171,8 @@ a:visited{
     margin: 1rem;
     padding: .25rem;
     border-radius: 10px;
+    box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.25);
     font-size: 1.25rem;    
-}
-
-.e-team:last-child,
-.w-team:last-child{
-    border-bottom: none;
 }
 
 .conf-header{
@@ -191,20 +192,20 @@ a:visited{
     text-transform: uppercase;
     font-weight: 600;
     display: grid;
-    grid-template-columns: repeat(4, 4fr);
-    grid-gap: 10px;
+    grid-template-columns: repeat(4, 2fr);
+    grid-gap: 1rem;
     text-shadow: 3px 3px 2px #231F20;
 }
 
 .conf-text{
     margin: 1rem;
+    text-shadow: 3px 3px 2px black;
 }
 
 .e-team, .w-team{
     display: grid;
-    grid-template-columns: repeat(4, 4fr);
+    grid-template-columns: repeat(4, 2fr);
     grid-gap: 3rem;
-    border-bottom: solid black 1px;
 }
 
 .games-tonight{
