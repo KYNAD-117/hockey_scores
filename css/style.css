@@ -220,7 +220,6 @@ a:visited{
 }
 
 .conf-text{
-    /* margin: 1.5rem; */
     text-shadow: 3px 3px 2px black;
     width: fit-content;
 }
@@ -263,3 +262,186 @@ a:visited{
     padding: 0 2.5%;
 }
 
+/* ------------------------- MEDIA QUERIES -------------------------*/
+@media screen and (max-width: 954px) {
+    .logo{
+        height: 7rem;
+        width: 7rem;
+        margin: 3rem;
+    }
+    
+    .logo-titre{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .logo-titre>h1{
+        margin-right: 2rem;
+        font-size: 3.5rem;
+    }
+    
+    .puck{
+        height: 2rem;
+        width: 3rem;
+    }
+
+    .container-standings{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 834px) {
+    .content{
+        margin: 3rem 1rem;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+    }
+
+    h2{
+        font-size: 2rem;
+    }
+
+    .games-tonight{
+        width: fit-content;
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+        gap: 2rem;
+        margin-left: 1%;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .menu ul{
+        font-weight: 600;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+        display: block;
+        background-color: #7C8086;
+        justify-content: center;
+        border-radius: 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .logo{
+        display: none;
+    }
+    
+    .logo-titre{
+        display: block;
+        justify-content: center;
+    }
+    
+    .logo-titre>h1{
+        margin: 1rem 0;
+        font-size: 3rem;
+    }
+    
+    .puck{
+        display: none;
+    }
+
+    .games-tonight{
+        width: fit-content;
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+        gap: 2rem;
+        margin-left: 0;
+    }
+
+    .container-schedule{
+        margin-left: 0;
+    }
+
+    .header-standings{
+        justify-content: space-between;
+        display: flex;
+        margin: .5rem .5rem .5rem .5rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        display: grid;
+        grid-template-columns: repeat(4, 2fr);
+        gap: 1rem;
+        text-shadow: 3px 3px 2px #231F20;
+    }
+
+    .eastern-conference{
+        background-color: rgba(167, 18, 29, 0.5);
+        margin: .5rem 0;
+        padding: .25rem;
+        border-radius: 10px;
+        box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.25);
+        font-size: 1rem;    
+    }
+    
+    .western-conference{
+        background-color: rgba(0, 38, 99, 0.5);
+        margin: .5rem 0;
+        padding: .25rem;
+        border-radius: 10px;
+        box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.25);
+        font-size: 1rem;    
+    }
+
+    .e-team,
+    .w-team{
+        display: grid;
+        grid-template-columns: repeat(4, 2fr);
+        gap: 0 3rem;
+        margin: .5rem .5rem .5rem .5rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    #teams{
+        width: 15rem;
+        height: 2rem;
+        border-radius: 10px;
+        background-color:#7C8086;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 2rem;
+        font-size: 1rem;
+        box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.25);
+    }
+
+    .save-btn{
+        font-family: 'Roboto', sans-serif;
+        font-size: 1rem;
+        text-transform: uppercase;
+        width: 7rem;
+        height: 2rem;
+        border-radius: 10px;
+        background-color:#7C8086;
+        box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.25);
+    }
+    
+    .games-tonight{
+        width: fit-content;
+        display: block;
+    }
+
+    .teams-cont{
+        text-transform: uppercase;
+        text-shadow: 3px 3px 2px #231F20;
+        letter-spacing: 3px;
+        font-size: 1.3rem;
+        border-radius: 10px;
+        background-color: rgba(124, 128, 134, .25);
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .header-standings{
+        justify-content: space-between;
+        display: flex;
+        margin: .5rem .5rem .5rem .5rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        grid-template-columns: repeat(4, 2fr);
+        gap: 1rem;
+        text-shadow: 3px 3px 2px #231F20;
+    }
+}
