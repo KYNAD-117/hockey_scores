@@ -248,6 +248,13 @@ a:visited{
     border-radius: 10px;
     background-color: rgba(124, 128, 134, .25);
     padding: 1rem;
+    transition: .3s ease-in-out;
+}
+
+.teams-cont:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: .3s ease-in-out;
 }
 
 /* ------------------------- FOOTER -------------------------*/
