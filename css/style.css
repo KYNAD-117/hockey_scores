@@ -229,26 +229,26 @@ a:visited{
 .w-team{
     display: grid;
     grid-template-columns: repeat(4, 2fr);
-    grid-gap: .05rem 3rem;
+    gap: .05rem 3rem;
     margin: 1.5rem 0 1.5rem 1.5rem;
 }
 
 .games-tonight{
     width: fit-content;
-    border-radius: 10px;
-    background-color: rgba(124, 128, 134, .25);
-    margin: 1rem;
-    padding: 1rem;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 4fr);
+    gap: 2rem;
+    margin-left: 1%;
 }
 
-.games-tonight p{
-    margin: 2.5rem 2.5rem;
+.teams-cont{
     text-transform: uppercase;
     text-shadow: 3px 3px 2px #231F20;
     letter-spacing: 3px;
     font-size: 1.3rem;
+    border-radius: 10px;
+    background-color: rgba(124, 128, 134, .25);
+    padding: 1rem;
 }
 
 /* ------------------------- FOOTER -------------------------*/

@@ -19,37 +19,36 @@ window.addEventListener("load", () =>{
     fetch(URL_SCHEDULE, options)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
-
             // get today's date (converti en h de slovakie)
             let dateToday = new Date(Date.now() + (3600 * 1000 * 24)).toISOString().split('T')[0];
-
+            // Check if games tonight or not
+            let gameChecker = 0;
             //loop
             for (const idSemaine in data.games) {
-                if(data.games[idSemaine]){                
+                let dateSlice = dateToday.slice(0,10);
+                let dateSliced = data.games[idSemaine].date.slice(0,10);
+                if(data.games[idSemaine]){    
                     if(data.games[idSemaine].date){
-                        let dateSlice = dateToday.slice(0,10);
-                        let dateSliced = data.games[idSemaine].date.slice(0,10)
-
-                        if(dateSliced == dateSlice){
+                        if(dateSliced === dateSlice){
+                            gameChecker++;
                             // Games tonight
-                            let timeSlicedMTL = new Date(data.games[idSemaine].date).toLocaleString("en-CA", {timeZone: "Europe/Bratislava", hourCycle: "h23"}).slice(0,17);
-
-                            const addTeams = document.createElement("p");
-                            
-                            //add para pour chaque game
-                            addTeams.innerHTML = data.games[idSemaine].team1long + "<em> vs </em>" + data.games[idSemaine].team2long + "<br>" + "<br>" + timeSlicedMTL.substring(11) + " PM";
-                            
+                            let timeSlicedMTL = new Date(data.games[idSemaine].date).toLocaleString("en-CA", {timeZone: "Europe/Bratislava", hourCycle: "h23"}).slice(0,17);                            
+                            const addTeams = document.createElement("div");
+                            addTeams.classList.add("teams-cont");
+                            // add para pour chaque game
+                            addTeams.innerHTML = data.games[idSemaine].team1long + "<em> vs </em>"+ data.games[idSemaine].team2long + "<br>" + "<br>" + timeSlicedMTL.substring(11) + " PM";
                             // append dans le div
                             document.querySelector(".games-tonight").appendChild(addTeams);
-                        }
-                    } else {
-                        // No games tonight
-                        const noGames = document.createElement("p");
-                        noGames.textContent = "No games scheduled tonight...";
-                        document.querySelector(".games-tonight").appendChild(noGames);
-                    }
-                }
+                        }                    
+                    }                       
+                }                    
+            }
+            if(gameChecker === 0){
+               // No games tonight
+                const noGames = document.createElement("div");
+                noGames.classList.add("teams-cont");
+                noGames.innerHTML = "No games scheduled tonight...";
+                document.querySelector(".games-tonight").appendChild(noGames);  
             }
         })
         .catch(err => console.error(err));
