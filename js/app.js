@@ -47,7 +47,11 @@ window.addEventListener("load", () =>{
                             const addTeams = document.createElement("div");
                             addTeams.classList.add("teams-cont");
                             // add para pour chaque game
-                            addTeams.innerHTML = data.games[idSemaine].team1long + "<em> vs </em>"+ data.games[idSemaine].team2long + "<br>" + "<br>" + timeSlicedMTL.substring(11) + " PM";
+                            addTeams.innerHTML = data.games[idSemaine].team1long +
+                            "<em><div style='color:black; text-shadow:none; font-size:1.5rem;letter-spacing: 1px; text-transform: lowercase;'> vs </div></em>"+
+                            data.games[idSemaine].team2long +
+                            "<br>" + "<br>" +
+                            timeSlicedMTL.substring(11) + " PM";
                             // append dans le div
                             document.querySelector(".games-tonight").appendChild(addTeams);
                         }                    
