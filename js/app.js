@@ -133,13 +133,12 @@ window.addEventListener("load", () =>{
     // let playerLastName = "suzuki";
 
     document.querySelector(".submit-label").addEventListener("click", getPlayer);
-
+    const playerStats = document.querySelector(".player-stats");
+    
     function getPlayer(){
         let playerFirstName = document.getElementById("first-name").value;
-        let playerLastName = document.getElementById("last-name").value;   
-
-       
-
+        let playerLastName = document.getElementById("last-name").value;
+        
         const options2 = {
             method: 'GET',
             headers: {
@@ -167,18 +166,24 @@ window.addEventListener("load", () =>{
             addAssists.textContent = data.league[data.league.length-1].stats.asists + " assists";
 
             let addPts = document.createElement("p");
-            addPts.textContent = data.league[data.league.length-1].stats.points + " points";            
+            addPts.textContent = data.league[data.league.length-1].stats.points + " points";
+
+            playerStats.classList.add("active");
 
             document.querySelector(".player-stats").appendChild(addGoals);
             document.querySelector(".player-stats").appendChild(addAssists);
             document.querySelector(".player-stats").appendChild(addPts);
-
         })
         .catch(err => {
             console.error(err)
+            playerStats.classList.add("active");
             let addErrorMsg = document.createElement("p");
-            addErrorMsg.textContent = "No players with that name exist";
+            addErrorMsg.innerHTML = "No players with that name exist <br> This database is incomplete.";
             document.querySelector(".player-stats").appendChild(addErrorMsg);
         });
+        
+        var form = document.getElementById("form");
+        form.reset();
     }
+
 });

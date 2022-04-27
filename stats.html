@@ -37,24 +37,37 @@
     </header>
 
     <main>
-        <div class="search-input">
-            <label class="input-label" for="first-name" >First name: </label>
-            <input type="text" id="first-name" placeholder="Type here...">
-            
-            <label class="input-label" for="last-name">Last name: </label>
-            <input type="text" id="last-name" placeholder="Type here...">
+        <div class="container-stats">
+           <div class="search-block">
+                <h2>Search a player</h2>
+                <form action="" id="form">
+                    <div class="search-input">
+                        <label class="input-label" for="first-name" >First name: </label>
+                        <input type="text" id="first-name" placeholder="Type here...">
+                        
+                        <label class="input-label" for="last-name">Last name: </label>
+                        <input type="text" id="last-name" placeholder="Type here...">
 
-            <input type="button" class="submit-label" value="Search">
+                        <div class="btn-group">
+                            <input type="button" class="submit-label" value="Search">
+                            <input type="button" class="reset-label" onclick="location.reload();" value="Reset"> 
+                        </div>
+                    </div>
+                </form> 
+            </div>
+
+            <div class="stats-title">
+                <h2 class="season-title"></h2>
+                <div class="container-stats">
+                    <div class="player-stats">
+                        <h3 class="name-title"></h3>
+                        <!-- stats added here -->
+                    </div>
+                </div> 
+            </div>
+            
         </div>
         
-
-        <h2 class="season-title"></h2>
-        <div class="container-stats">
-            <div class="player-stats">
-                <h3 class="name-title"></h3>
-                <!-- stats added here -->
-            </div>
-        </div>
     </main>
 
     <footer class="footer">
