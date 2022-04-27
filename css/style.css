@@ -460,6 +460,10 @@ a:visited{
     .container-stats{
         display: block;
     }
+
+    .search-block{
+        margin: 2rem .5rem;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -580,6 +584,19 @@ a:visited{
 
     .nav-menu{
         top: 7.5rem;
+    }
+
+    .search-block{
+        width: 90%;
+    }
+
+    #first-name,
+    #last-name{
+        width: 12rem;
+    }
+
+    .btn-group{
+        display: block;
     }
 
     #teams{
