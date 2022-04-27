@@ -263,7 +263,7 @@ a:visited{
     letter-spacing: 3px;
     font-size: 1.3rem;
     border-radius: 10px;
-    background-color: rgba(124, 128, 134, .25);
+    background-color: #39373A;
     padding: 1rem;
     transition: .3s ease-in-out;
 }
