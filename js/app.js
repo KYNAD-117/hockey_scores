@@ -1,4 +1,15 @@
+
 window.addEventListener("load", () =>{
+
+    const hamburgerMenu = document.querySelector(".hamburger-menu");
+    const navMenu = document.querySelector(".nav-menu");
+
+    hamburgerMenu.addEventListener("click", menuMobile);
+
+    function menuMobile() {
+        hamburgerMenu.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    }
 
     //maybe add select pour year et league?
     let league = "NHL";
