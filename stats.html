@@ -5,14 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Hockey Scores - Schedule</title>
+    <title>Hockey Scores - Stats</title>
 </head>
+
+
 
 <body>
     <header class="entete">
         <div class="logo-titre">
             <img class="logo" src="./img/nhl-logo.png" alt="NHL Logo">
-            <h1>Schedule <img class="puck" src="./img/puck.png" alt="Hockey puck"> </h1>
+            <h1>Statistics<img class="puck" src="./img/puck.png" alt="Hockey puck"> </h1>
         </div>
     
         <div class="menu-wrapper">
@@ -35,10 +37,22 @@
     </header>
 
     <main>
-        <div class="container-schedule">
-            <h2>Games Tonight</h2>
-            <div class="games-tonight">
-               <!--schedule added here-->
+        <div class="search-input">
+            <label class="input-label" for="first-name" >First name: </label>
+            <input type="text" id="first-name" placeholder="Type here...">
+            
+            <label class="input-label" for="last-name">Last name: </label>
+            <input type="text" id="last-name" placeholder="Type here...">
+
+            <input type="button" class="submit-label" value="Search">
+        </div>
+        
+
+        <h2 class="season-title"></h2>
+        <div class="container-stats">
+            <div class="player-stats">
+                <h3 class="name-title"></h3>
+                <!-- stats added here -->
             </div>
         </div>
     </main>
@@ -47,6 +61,7 @@
         <p class="copyright-footer">Ce site n'est pas approuvé par ou affilié à NHL. <br> ⓒ 2022 Danyk Allard</p>
     </footer>
 </body>
+
 
 <script src="./js/app.js"></script>
 </html>

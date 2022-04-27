@@ -18,7 +18,7 @@ window.addEventListener("load", () =>{
     const URL_STANDINGS = `https://hockey-live-sk-data.p.rapidapi.com/table/${league}/${year}?key=cb7bb85fda71e55ea7aaf92950eebb89`;
     const URL_SCHEDULE = `https://hockey-live-sk-data.p.rapidapi.com/games/${league}/${year}?key=cb7bb85fda71e55ea7aaf92950eebb89`;
 
-    const options = {
+    const options1 = {
         method: 'GET',
         headers: {
             'X-RapidAPI-Host': 'hockey-live-sk-data.p.rapidapi.com',
@@ -26,8 +26,8 @@ window.addEventListener("load", () =>{
         }
     };
 
-    // fetch schedule
-    fetch(URL_SCHEDULE, options)
+    // ******************************************************************************************************* fetch schedule
+    fetch(URL_SCHEDULE, options1)
         .then(response => response.json())
         .then(data => {
             // get today's date (converti en h de slovakie)
@@ -69,8 +69,8 @@ window.addEventListener("load", () =>{
         .catch(err => console.error(err));
 
 
-    // fetch standings
-    fetch(URL_STANDINGS, options)
+    // ******************************************************************************************************* fetch standings
+    fetch(URL_STANDINGS, options1)
         .then(response => response.json())
         .then(data => {
             // console.log(data)
@@ -125,5 +125,60 @@ window.addEventListener("load", () =>{
                 document.querySelector(".w-team").appendChild(addLoss);
             }
         })
-        .catch(err => console.error(err));
+    .catch(err => console.error(err));
+
+    // ******************************************************************************************************* fetch stats
+
+    // let playerFirstName = "nick";
+    // let playerLastName = "suzuki";
+
+    document.querySelector(".submit-label").addEventListener("click", getPlayer);
+
+    function getPlayer(){
+        let playerFirstName = document.getElementById("first-name").value;
+        let playerLastName = document.getElementById("last-name").value;   
+
+       
+
+        const options2 = {
+            method: 'GET',
+            headers: {
+                name: playerLastName + " " + playerFirstName,
+                'X-RapidAPI-Host': 'hockey-live-sk-data.p.rapidapi.com',
+                'X-RapidAPI-Key': '749aa31749msh682c457b13ac752p18415ajsn3be27bc97888'
+            }
+        };
+        
+        fetch(`https://hockey-live-sk-data.p.rapidapi.com/player/${playerLastName}%20${playerFirstName}/NHL?key=cb7bb85fda71e55ea7aaf92950eebb89`, options2)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+
+            let nameTitle = document.querySelector(".name-title");
+            nameTitle.textContent = playerFirstName + " " + playerLastName;
+
+            let seasonTitle = document.querySelector(".season-title");
+            seasonTitle.textContent =  data.league[data.league.length-1].name + " season";
+
+            let addGoals = document.createElement("p");
+            addGoals.textContent = data.league[data.league.length-1].stats.goals + " goals";
+
+            let addAssists = document.createElement("p");
+            addAssists.textContent = data.league[data.league.length-1].stats.asists + " assists";
+
+            let addPts = document.createElement("p");
+            addPts.textContent = data.league[data.league.length-1].stats.points + " points";            
+
+            document.querySelector(".player-stats").appendChild(addGoals);
+            document.querySelector(".player-stats").appendChild(addAssists);
+            document.querySelector(".player-stats").appendChild(addPts);
+
+        })
+        .catch(err => {
+            console.error(err)
+            let addErrorMsg = document.createElement("p");
+            addErrorMsg.textContent = "No players with that name exist";
+            document.querySelector(".player-stats").appendChild(addErrorMsg);
+        });
+    }
 });
