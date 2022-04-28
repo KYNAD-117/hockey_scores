@@ -1,5 +1,7 @@
 
 window.addEventListener("load", () =>{
+    let thisYear = new Date().getFullYear();
+    document.querySelector(".copyright-year").innerHTML = "ⓒ " + thisYear +  " Danyk Allard"
 
     const hamburgerMenu = document.querySelector(".hamburger-menu");
     const navMenu = document.querySelector(".nav-menu");
@@ -191,7 +193,7 @@ window.addEventListener("load", () =>{
             console.error(err)
             playerStats.classList.add("active");
             let addErrorMsg = document.createElement("p");
-            addErrorMsg.innerHTML = "No players with that name exist. <br> This database is incomplete.";
+            addErrorMsg.innerHTML = "No players with that name exist. <br> This database might be incomplete.";
             document.querySelector(".player-stats").appendChild(addErrorMsg);
         });
     }
