@@ -128,16 +128,30 @@ window.addEventListener("load", () =>{
     .catch(err => console.error(err));
 
     // ******************************************************************************************************* fetch stats
-
-    // let playerFirstName = "nick";
-    // let playerLastName = "suzuki";
-
-    document.querySelector(".submit-label").addEventListener("click", getPlayer);
+    document.querySelector(".submit-label").addEventListener("click", validateForm);
     const playerStats = document.querySelector(".player-stats");
+
+    function validateForm() {
+        let validateFirstName = document.getElementById("first-name").value;
+        let validateLastName = document.getElementById("last-name").value;
+        let validation = /\d/;
+        let checkNumFname = validation.test(validateFirstName);
+        let checkNumLname = validation.test(validateLastName);
+
+        if (checkNumFname === true || checkNumLname === true) {
+            console.log("here");
+            playerStats.classList.add("active");
+            let addErrorMsg = document.createElement("p");
+            addErrorMsg.innerHTML = "Please enter a name without numbers. <br> Please reset your search and try again.";
+            document.querySelector(".player-stats").appendChild(addErrorMsg);
+        } else {
+           getPlayer();
+        }
+    }
     
     function getPlayer(){
-        let playerFirstName = document.getElementById("first-name").value;
-        let playerLastName = document.getElementById("last-name").value;
+        let playerFirstName = document.getElementById("first-name").value.trim();
+        let playerLastName = document.getElementById("last-name").value.trim();
         
         const options2 = {
             method: 'GET',
@@ -169,7 +183,6 @@ window.addEventListener("load", () =>{
             addPts.textContent = data.league[data.league.length-1].stats.points + " points";
 
             playerStats.classList.add("active");
-
             document.querySelector(".player-stats").appendChild(addGoals);
             document.querySelector(".player-stats").appendChild(addAssists);
             document.querySelector(".player-stats").appendChild(addPts);
@@ -178,12 +191,11 @@ window.addEventListener("load", () =>{
             console.error(err)
             playerStats.classList.add("active");
             let addErrorMsg = document.createElement("p");
-            addErrorMsg.innerHTML = "No players with that name exist <br> This database is incomplete.";
+            addErrorMsg.innerHTML = "No players with that name exist. <br> This database is incomplete.";
             document.querySelector(".player-stats").appendChild(addErrorMsg);
         });
-        
-        var form = document.getElementById("form");
-        form.reset();
     }
+
+    
 
 });
