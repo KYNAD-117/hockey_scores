@@ -274,6 +274,17 @@ a:visited{
     box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.75);
 }
 
+.clinch{
+    display: flex;
+    margin-left: 1rem;
+    padding: 0;
+}
+
+.clinch p{
+    margin: .5rem;
+    font-size: 1.25rem;
+}
+
 .season-title{
     margin-left: 2rem;
 }
