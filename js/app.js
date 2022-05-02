@@ -16,7 +16,117 @@ window.addEventListener("load", () =>{
         navMenu.classList.toggle("active");
     }
 
+    //change the logo from the selection on the home page   
+    // let logoHeader = document.getElementById("logo-header");
+    // let selectTeams = document.getElementById("teams");
+ 
+    // document.querySelector(".save-btn").addEventListener("click", () => {
+        
+    //     switch (selectTeams.value){
+    //         case "Ducks":
+    //             logoHeader.src = "./img/teams/Anaheim_Ducks.svg";
+    //             break;
+    //         case "Coyotes":
+    //             logoHeader.src = "./img/teams/Arizona_Coyotes.svg";
+    //             break;
+    //         case "Bruins":
+    //             logoHeader.src = "./img/teams/Boston_Bruins.svg";
+    //             break;
+    //         case "Sabres":
+    //             logoHeader.src = "./img/teams/Buffalo_Sabres.svg";
+    //             break;
+    //         case "Flames":
+    //             logoHeader.src = "./img/teams/Calgary_Flames.svg";
+    //             break;
+    //         case "Hurricanes":
+    //             logoHeader.src = "./img/teams/Carolina_Hurricanes.svg";
+    //             break;
+    //         case "Blackhawks":
+    //             logoHeader.src = "./img/teams/Chicago_Blackhawks.svg";
+    //             break;
+    //         case "Avalanche":
+    //             logoHeader.src = "./img/teams/Colorado_Avalanche.svg";
+    //             break;
+    //         case "BlueJackets":
+    //             logoHeader.src = "./img/teams/Columbus_Blue_Jackets.svg";
+    //             break;
+    //         case "Stars":
+    //             logoHeader.src = "./img/teams/Dallas_Stars.svg";
+    //             break;
+    //         case "RedWings":
+    //             logoHeader.src = "./img/teams/Detroit_Red_Wings.svg";
+    //             break;
+    //         case "Oilers":
+    //             logoHeader.src = "./img/teams/Edmonton_Oilers.svg";
+    //             break;
+    //         case "Panthers":
+    //             logoHeader.src = "./img/teams/Florida_Panthers.svg";
+    //             break;
+    //         case "Kings":
+    //             logoHeader.src = "./img/teams/Los_Angeles_Kings.svg";
+    //             break;
+    //         case "Wild":
+    //             logoHeader.src = "./img/teams/Minnesota_Wild.svg";
+    //             break;
+    //         case "Canadiens":
+    //             logoHeader.src = "./img/teams/Montreal_Canadiens.svg";
+    //             break;
+    //         case "Predators":
+    //             logoHeader.src = "./img/teams/Nashville_Predators.svg";
+    //             break;
+    //         case "Devils":
+    //             logoHeader.src = "./img/teams/New_Jersey_Devils.svg";
+    //             break;
+    //         case "Islanders":
+    //             logoHeader.src = "./img/teams/New_York_Islanders.svg";
+    //             break;
+    //         case "Rangers":
+    //             logoHeader.src = "./img/teams/New_York_Rangers.svg";
+    //             break;
+    //         case "Senators":
+    //             logoHeader.src = "./img/teams/Ottawa_Senators.svg";
+    //             break;
+    //         case "Flyers":
+    //             logoHeader.src = "./img/teams/Philadelphia_Flyers.svg";
+    //             break;
+    //         case "Penguins":
+    //             logoHeader.src = "./img/teams/Pittsburgh_Penguins.svg";
+    //             break;
+    //         case "Sharks":
+    //             logoHeader.src = "./img/teams/San_Jose_Sharks.svg";
+    //             break;
+    //         case "Kraken":
+    //             logoHeader.src = "./img/teams/Seattle_Kraken.svg";
+    //             break;
+    //         case "Blues":
+    //             logoHeader.src = "./img/teams/St_Louis_Blues.svg";
+    //             break;
+    //         case "Lightning":
+    //             logoHeader.src = "./img/teams/Tampa_Bay_Lightning.svg";
+    //             break;
+    //         case "MapleLeafs":
+    //             logoHeader.src = "./img/teams/Toronto_Maple_Leafs.svg";
+    //             break;
+    //         case "Canucks":
+    //             logoHeader.src = "./img/teams/Vancouver_Canucks.svg";
+    //             break;
+    //         case "GoldenKnights":
+    //             logoHeader.src = "./img/teams/Vegas_Golden_Knights.svg";
+    //             break;
+    //         case "Capitals":
+    //             logoHeader.src = "./img/teams/Washington_Capitals.svg";
+    //             break;
+    //         case "Jets":
+    //             logoHeader.src = "./img/teams/Winnipeg_Jets.svg";
+    //             break;
+    //         default:
+    //             logoHeader.src = "./img/nhl-logo.png";
+    //     }
+    // });
+ 
+
     //maybe add select pour year et league?
+    
     let league = "NHL";
     let year = "2021";
     
@@ -25,6 +135,9 @@ window.addEventListener("load", () =>{
     const URL_SCHEDULE = `https://hockey-live-sk-data.p.rapidapi.com/games/${league}/${year}?key=cb7bb85fda71e55ea7aaf92950eebb89`;
 
     // ******************************************************************************************************* fetch schedule
+
+    // document.getElementById("datePicker").value = new Date(Date.now()).toISOString().split('T')[0];
+
     const options1 = {
         method: 'GET',
         headers: {
@@ -35,10 +148,9 @@ window.addEventListener("load", () =>{
     fetch(URL_SCHEDULE, options1)
         .then(response => response.json())
         .then(data => {
-
-            // get today's date
+            // get today's date     
             let dateToday = new Date(Date.now() + (3600 * 1000 * 24)).toISOString().split('T')[0];
-
+            
             // Check if games tonight or not
             let gameChecker = 0;
 
@@ -72,7 +184,7 @@ window.addEventListener("load", () =>{
                 }                    
             }
             if(gameChecker === 0){
-               // No games tonight
+            // No games tonight
                 const noGames = document.createElement("div");
                 noGames.classList.add("teams-cont");
                 noGames.innerHTML = "No games scheduled tonight...";
@@ -81,15 +193,12 @@ window.addEventListener("load", () =>{
         })
         .catch(err => console.error(err));
 
-
     // ******************************************************************************************************* fetch standings
     fetch(URL_STANDINGS, options1)
         .then(response => response.json())
         .then(data => {
-            // console.log(data)
             //EASTERN
             for (const standings in data.conference["Eastern conference"]){
-                // console.log(data.conference["Eastern conference"][standings].longname);
                 // add team name
                 let addName = document.createElement("p");
                 addName.classList.add("conf-text");
@@ -119,7 +228,6 @@ window.addEventListener("load", () =>{
 
             //WESTERN
             for (const standings in data.conference["Western conference"]){
-                // console.log(data.conference["Western conference"][standings].longname);
                 // add team name
                 let addName = document.createElement("p");
                 addName.classList.add("conf-text");
@@ -191,7 +299,7 @@ window.addEventListener("load", () =>{
         fetch(`https://hockey-live-sk-data.p.rapidapi.com/player/${playerLastName}%20${playerFirstName}/NHL?key=cb7bb85fda71e55ea7aaf92950eebb89`, options2)
         .then(response => response.json())
         .then(data => {
-            // console.log(data);
+            console.log(data);
             // display the fname + lname
             let nameTitle = document.querySelector(".name-title");
             nameTitle.textContent = playerFirstName + " " + playerLastName;
