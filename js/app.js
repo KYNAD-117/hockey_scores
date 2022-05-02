@@ -136,7 +136,7 @@ const URL_SCHEDULE = `https://hockey-live-sk-data.p.rapidapi.com/games/${league}
 
 // ******************************************************************************************************* fetch schedule
 
-// document.getElementById("datePicker").value = new Date(Date.now()).toISOString().split('T')[0];
+document.getElementById("datePicker").value = new Date(Date.now()).toISOString().split('T')[0];
 
 const options1 = {
     method: 'GET',
@@ -197,7 +197,6 @@ fetch(URL_SCHEDULE, options1)
 fetch(URL_STANDINGS, options1)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
         //EASTERN
         for (const standings in data.conference["Eastern conference"]){
             // add team name
