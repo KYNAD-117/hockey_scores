@@ -136,7 +136,7 @@ const URL_SCHEDULE = `https://hockey-live-sk-data.p.rapidapi.com/games/${league}
 
 // ******************************************************************************************************* fetch schedule
 
-document.getElementById("datePicker").value = new Date(Date.now()).toISOString().split('T')[0];
+
 
 const options1 = {
     method: 'GET',
@@ -148,6 +148,10 @@ const options1 = {
 fetch(URL_SCHEDULE, options1)
     .then(response => response.json())
     .then(data => {
+
+        let dateCalendar = document.getElementById("datePicker");
+        dateCalendar.value = new Date(Date.now()).toISOString().split('T')[0];
+        
         // get today's date     
         let dateToday = new Date(Date.now() + (3600 * 1000 * 24)).toISOString().split('T')[0];
         
