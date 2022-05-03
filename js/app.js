@@ -119,7 +119,7 @@ window.addEventListener("load", () =>{
                 logoHeader.src = "./img/teams/Winnipeg_Jets.svg";
                 break;
             default:
-                logoHeader.src = "./img/nhl-logo.png";
+                logoHeader.src = "./img/nhl-logo.svg";
         }
     });
 
