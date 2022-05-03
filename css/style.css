@@ -276,7 +276,6 @@ a:visited{
 }
 
 .teams-cont:hover{
-    cursor: pointer;
     transform: scale(1.2);
     transition: .3s ease-in-out;
     box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.75);
@@ -294,13 +293,14 @@ a:visited{
 }
 
 #datePicker{
-    margin: 1rem;
+    margin-top: 2rem;
     background-color: #39373A;
     color: var(--lowWhite);
-    padding: .5rem;
+    padding: .75rem;
     font-size: 1.25rem;
     border-radius: 10px;
     border: none;
+    cursor: pointer;
 }
 
 .season-title{
