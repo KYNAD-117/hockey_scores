@@ -543,12 +543,13 @@ img[src="null"]{
     }
 
     .logo{
-        display: none;
+        margin: .5rem;
     }
     
     .logo-titre{
-        display: block;
-        justify-content: center;
+        display: felx;
+        justify-content: space-around;
+        margin-bottom: 1rem;
     }
     
     .logo-titre>h1{
