@@ -113,6 +113,10 @@ a:visited{
     margin: 3rem 3rem 3rem 7rem;
 }
 
+img[src="null"]{
+    display: none;
+}
+
 .logo-titre{
     display: flex;
     align-items: center;

@@ -19,111 +19,146 @@ window.addEventListener("load", () =>{
 let logoHeader = document.getElementById("logo-header");
 let selectTeams = document.getElementById("teams");
 
+
 window.addEventListener("load", () =>{
     document.querySelector(".save-btn").addEventListener("click", () => {
         switch (selectTeams.value){
             case "Ducks":
+                sessionStorage.setItem("logoSrc", "./img/teams/Anaheim_Ducks.svg");
                 logoHeader.src = "./img/teams/Anaheim_Ducks.svg";
                 break;
             case "Coyotes":
+                sessionStorage.setItem("logoSrc", "./img/teams/Arizona_Coyotes.svg");
                 logoHeader.src = "./img/teams/Arizona_Coyotes.svg";
                 break;
             case "Bruins":
+                sessionStorage.setItem("logoSrc", "./img/teams/Boston_Bruins.svg");
                 logoHeader.src = "./img/teams/Boston_Bruins.svg";
                 break;
             case "Sabres":
+                sessionStorage.setItem("logoSrc", "./img/teams/Buffalo_Sabres.svg");
                 logoHeader.src = "./img/teams/Buffalo_Sabres.svg";
                 break;
             case "Flames":
+                sessionStorage.setItem("logoSrc", "./img/teams/Calgary_Flames.svg");
                 logoHeader.src = "./img/teams/Calgary_Flames.svg";
                 break;
             case "Hurricanes":
+                sessionStorage.setItem("logoSrc", "./img/teams/Carolina_Hurricanes.svg");
                 logoHeader.src = "./img/teams/Carolina_Hurricanes.svg";
                 break;
             case "Blackhawks":
+                sessionStorage.setItem("logoSrc", "./img/teams/Chicago_Blackhawks.svg");
                 logoHeader.src = "./img/teams/Chicago_Blackhawks.svg";
                 break;
             case "Avalanche":
+                sessionStorage.setItem("logoSrc", "./img/teams/Colorado_Avalanche.svg");
                 logoHeader.src = "./img/teams/Colorado_Avalanche.svg";
                 break;
             case "BlueJackets":
+                sessionStorage.setItem("logoSrc", "./img/teams/Columbus_Blue_Jackets.svg");
                 logoHeader.src = "./img/teams/Columbus_Blue_Jackets.svg";
                 break;
             case "Stars":
+                sessionStorage.setItem("logoSrc", "./img/teams/Dallas_Stars.svg");
                 logoHeader.src = "./img/teams/Dallas_Stars.svg";
                 break;
             case "RedWings":
+                sessionStorage.setItem("logoSrc", "./img/teams/Detroit_Red_Wings.svg");
                 logoHeader.src = "./img/teams/Detroit_Red_Wings.svg";
                 break;
             case "Oilers":
+                sessionStorage.setItem("logoSrc", "./img/teams/Edmonton_Oilers.svg");
                 logoHeader.src = "./img/teams/Edmonton_Oilers.svg";
                 break;
             case "Panthers":
+                sessionStorage.setItem("logoSrc", "./img/teams/Florida_Panthers.svg");
                 logoHeader.src = "./img/teams/Florida_Panthers.svg";
                 break;
             case "Kings":
+                sessionStorage.setItem("logoSrc", "./img/teams/Los_Angeles_Kings.svg");
                 logoHeader.src = "./img/teams/Los_Angeles_Kings.svg";
                 break;
             case "Wild":
+                sessionStorage.setItem("logoSrc", "./img/teams/Minnesota_Wild.svg");
                 logoHeader.src = "./img/teams/Minnesota_Wild.svg";
                 break;
             case "Canadiens":
+                sessionStorage.setItem("logoSrc", "./img/teams/Montreal_Canadiens.svg");
                 logoHeader.src = "./img/teams/Montreal_Canadiens.svg";
                 break;
             case "Predators":
+                sessionStorage.setItem("logoSrc", "./img/teams/Nashville_Predators.svg");
                 logoHeader.src = "./img/teams/Nashville_Predators.svg";
                 break;
             case "Devils":
+                sessionStorage.setItem("logoSrc", "./img/teams/New_Jersey_Devils.svg");
                 logoHeader.src = "./img/teams/New_Jersey_Devils.svg";
                 break;
             case "Islanders":
+                sessionStorage.setItem("logoSrc", "./img/teams/New_York_Islanders.svg");
                 logoHeader.src = "./img/teams/New_York_Islanders.svg";
                 break;
             case "Rangers":
+                sessionStorage.setItem("logoSrc", "./img/teams/New_York_Rangers.svg");
                 logoHeader.src = "./img/teams/New_York_Rangers.svg";
                 break;
             case "Senators":
+                sessionStorage.setItem("logoSrc", "./img/teams/Ottawa_Senators.svg");
                 logoHeader.src = "./img/teams/Ottawa_Senators.svg";
                 break;
             case "Flyers":
+                sessionStorage.setItem("logoSrc", "./img/teams/Philadelphia_Flyers.svg");
                 logoHeader.src = "./img/teams/Philadelphia_Flyers.svg";
                 break;
             case "Penguins":
+                sessionStorage.setItem("logoSrc", "./img/teams/Pittsburgh_Penguins.svg");
                 logoHeader.src = "./img/teams/Pittsburgh_Penguins.svg";
                 break;
             case "Sharks":
+                sessionStorage.setItem("logoSrc", "./img/teams/San_Jose_Sharks.svg");
                 logoHeader.src = "./img/teams/San_Jose_Sharks.svg";
                 break;
             case "Kraken":
+                sessionStorage.setItem("logoSrc", "./img/teams/Seattle_Kraken.svg");
                 logoHeader.src = "./img/teams/Seattle_Kraken.svg";
                 break;
             case "Blues":
+                sessionStorage.setItem("logoSrc", "./img/teams/St_Louis_Blues.svg");
                 logoHeader.src = "./img/teams/St_Louis_Blues.svg";
                 break;
             case "Lightning":
+                sessionStorage.setItem("logoSrc", "./img/teams/Tampa_Bay_Lightning.svg");
                 logoHeader.src = "./img/teams/Tampa_Bay_Lightning.svg";
                 break;
             case "MapleLeafs":
+                sessionStorage.setItem("logoSrc", "./img/teams/Toronto_Maple_Leafs.svg");
                 logoHeader.src = "./img/teams/Toronto_Maple_Leafs.svg";
                 break;
             case "Canucks":
+                sessionStorage.setItem("logoSrc", "./img/teams/Vancouver_Canucks.svg");
                 logoHeader.src = "./img/teams/Vancouver_Canucks.svg";
                 break;
             case "GoldenKnights":
+                sessionStorage.setItem("logoSrc", "./img/teams/Vegas_Golden_Knights.svg");
                 logoHeader.src = "./img/teams/Vegas_Golden_Knights.svg";
                 break;
             case "Capitals":
+                sessionStorage.setItem("logoSrc", "./img/teams/Washington_Capitals.svg");
                 logoHeader.src = "./img/teams/Washington_Capitals.svg";
                 break;
             case "Jets":
+                sessionStorage.setItem("logoSrc", "./img/teams/Winnipeg_Jets.svg");
                 logoHeader.src = "./img/teams/Winnipeg_Jets.svg";
                 break;
             default:
+                sessionStorage.setItem("logoSrc", "./img/nhl-logo.svg");
                 logoHeader.src = "./img/nhl-logo.svg";
         }
     });
-
 });
+
+logoHeader.src = sessionStorage.getItem("logoSrc");
 
 //maybe add select pour year et league?
 
