@@ -211,7 +211,7 @@ fetch(URL_SCHEDULE, options1)
 
                         // add para pour chaque game
                         addTeams.innerHTML = data.games[idSemaine].team1long +
-                        "<em><div style='color:black; text-shadow:none; font-size:1.5rem;letter-spacing: 1px; text-transform: lowercase;'> vs </div></em>"+
+                        "<em><div style='color:black; text-shadow:none; font-size:1.5rem; letter-spacing:1px; text-transform:lowercase; font-weight:600;'> vs </div></em>"+
                         data.games[idSemaine].team2long +
                         "<br>" + "<br>" +
                         timeSlicedMTL.substring(11) + " PM";
@@ -360,6 +360,7 @@ window.addEventListener("load", () =>{
 
             // append all the childs
             playerStats.classList.add("active");
+            //remove childs
             document.querySelector(".player-stats").appendChild(addGoals);
             document.querySelector(".player-stats").appendChild(addAssists);
             document.querySelector(".player-stats").appendChild(addPts);
