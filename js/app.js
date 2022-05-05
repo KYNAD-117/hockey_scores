@@ -196,16 +196,29 @@ fetch(URL_SCHEDULE, options1)
         //loop
         for (const idSemaine in data.games) {
             // slice date to (remove time)
-            let dateSlice = dateToday.slice(0,10);
-            let dateSliced = data.games[idSemaine].date.slice(0,10);
+            let dateTodayVerif = dateToday.slice(0,10);
+            let dateSlicedVerif = data.games[idSemaine].date.slice(0,10);
+
+            let dateSliced = data.games[idSemaine].date;
+            var [date, time] = dateSliced.split(' ');
+            var [year, month, day] = date.split('-');
+            var [hour, minute] = time.split(':');
+
+            // Games tonight
+            var timeSlicedMTL = new Date(year, month-1, day, hour, minute,0).toLocaleString('en-CA', {
+                timeZone: 'Europe/Bratislava',
+                hourCycle: 'h23',
+                dateStyle: 'full',
+                timeStyle: 'full',
+            }).slice(10, 26);
+
             if(data.games[idSemaine]){    
                 if(data.games[idSemaine].date){
-                    if(dateSliced === dateSlice){
+                    if(dateSlicedVerif === dateTodayVerif){
+
                         // add on checker to show no games if checker is 0
                         gameChecker++;
-
-                        // Games tonight
-                        let timeSlicedMTL = new Date(data.games[idSemaine].date).toLocaleString("en-CA", {timeZone: "Europe/Bratislava", hourCycle: "h23"}).slice(0,17);                            
+                                                   
                         const addTeams = document.createElement("div");
                         addTeams.classList.add("teams-cont");
 
@@ -315,13 +328,13 @@ window.addEventListener("load", () =>{
             let addErrorMsg = document.createElement("p");
             addErrorMsg.innerHTML = "Please enter a name without numbers. <br> Please reset your search and try again.";
             document.querySelector(".player-stats").appendChild(addErrorMsg);
-        } else {
-        getPlayer();
+        } else { 
+            getPlayer();
         }
     }
 
     // function to display the searched player
-    function getPlayer(){
+    function getPlayer(){        
         let playerFirstName = document.getElementById("first-name").value.trim();
         let playerLastName = document.getElementById("last-name").value.trim();
         
@@ -358,12 +371,12 @@ window.addEventListener("load", () =>{
             let addPts = document.createElement("p");
             addPts.textContent = data.league[data.league.length-1].stats.points + " points";
 
-            // append all the childs
             playerStats.classList.add("active");
-            //remove childs
+
+            // append all the childs
             document.querySelector(".player-stats").appendChild(addGoals);
             document.querySelector(".player-stats").appendChild(addAssists);
-            document.querySelector(".player-stats").appendChild(addPts);
+            document.querySelector(".player-stats").appendChild(addPts); 
         })
         // display error if no player exists in database
         .catch(err => {
