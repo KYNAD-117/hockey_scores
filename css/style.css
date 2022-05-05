@@ -416,6 +416,12 @@ img[src="null"]{
 }
 
 /* ------------------------- MEDIA QUERIES -------------------------*/
+@media screen and (max-width: 1100px) {
+    .nav-menu li a{
+        width: 10rem;
+    }
+}
+
 @media screen and (max-width: 954px) {
     .logo{
         height: 7rem;
@@ -480,6 +486,7 @@ img[src="null"]{
     }
 
     .nav-menu li a{
+        width: 100%;
         padding: 0;
         text-transform: uppercase;
         text-decoration: none;
