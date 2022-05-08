@@ -157,7 +157,9 @@ img[src="null"]{
     font-size: 1.25rem;
 }
 
-#teams{
+#teams,
+#league,
+#year{
     width: 25rem;
     height: 2.5rem;
     border-radius: 10px;
@@ -166,6 +168,52 @@ img[src="null"]{
     margin-bottom: 2rem;
     font-size: 1rem;
     box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.25);
+}
+
+#league,
+#year{
+    width: fit-content;
+    height: 2.5rem;
+    border-radius: 10px;
+    background-color: var(--jumbo);
+    color: rgba(255, 255, 255, 0.5);
+    margin: .75rem;
+    font-size: 1rem;
+    box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.25);
+}
+
+#year{
+    width: 7rem;
+}
+
+.select-standings{
+    display: flex;
+    margin: 1rem;
+    align-items: center;
+}
+
+.btn-standings{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 10px;
+    background-color:#7C8086;
+    box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.25);
+    border: none;
+    margin: 1rem;
+
+}
+
+.btn-standings a{
+    color: var(--lowWhite);
+}
+
+.btn-standings:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: var(--lowWhite);
 }
 
 .choice{
