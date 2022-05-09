@@ -1,4 +1,3 @@
-
 // show current year on the footer
 let thisYear = new Date().getFullYear();
 document.querySelector(".copyright-year").innerHTML = "ⓒ " + thisYear +  " Danyk Allard"
@@ -7,6 +6,7 @@ document.querySelector(".copyright-year").innerHTML = "ⓒ " + thisYear +  " Dan
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 const navMenu = document.querySelector(".nav-menu");
 
+// function to click on hamburger menu
 window.addEventListener("load", function(){
     hamburgerMenu.addEventListener("click", menuMobile);
 
@@ -15,11 +15,11 @@ window.addEventListener("load", function(){
         navMenu.classList.toggle("active");
     }
 });
-//change the logo from the selection on the home page   
+ 
 let logoHeader = document.getElementById("logo-header");
 let selectTeams = document.getElementById("teams");
 
-
+// function to change the logo on the header
 window.addEventListener("load", function(){
     document.querySelector(".save-btn").addEventListener("click", function(){
         switch (selectTeams.value){
@@ -160,6 +160,7 @@ window.addEventListener("load", function(){
 
 logoHeader.src = sessionStorage.getItem("logoSrc");
 
+// set the league and year for standings AND schedule
 let league = "NHL";
 let year = "2021";
 
@@ -179,27 +180,31 @@ const options1 = {
 fetch(URL_SCHEDULE, options1)
     .then(response => response.json())
     .then(data => {
+
+        // display today's date on the schedule page
         let dateCalendar = document.getElementById("datePicker");
         dateCalendar.textContent = new Date(Date.now()).toISOString().split('T')[0];
 
         // get today's date     
         let dateToday = new Date(Date.now() + (3600 * 1000 * 24)).toISOString().split('T')[0];
         
-        // Check if games tonight or not
+        // add a checker (if games tonight)
         let gameChecker = 0;
 
-        //loop
+        // loop to check if there are games today
         for (const idSemaine in data.games) {
+
             // slice date to (remove time)
             let dateTodayVerif = dateToday.slice(0,10);
             let dateSlicedVerif = data.games[idSemaine].date.slice(0,10);
 
+            // sliced time based on the date in API
             let dateSliced = data.games[idSemaine].date;
             var [date, time] = dateSliced.split(' ');
             var [year, month, day] = date.split('-');
             var [hour, minute] = time.split(':');
 
-            // Games tonight
+            // display time on the game card
             var timeSlicedMTL = new Date(year, month-1, day, hour, minute,0).toLocaleString('en-CA', {
                 timeZone: 'Europe/Bratislava',
                 hourCycle: 'h23',
@@ -207,8 +212,13 @@ fetch(URL_SCHEDULE, options1)
                 timeStyle: 'full',
             }).slice(12, 28);
 
-            if(data.games[idSemaine]){    
+            // check if there are games in the API
+            if(data.games[idSemaine]){   
+                
+                // check the date in the API
                 if(data.games[idSemaine].date){
+
+                    // check to see if the date on today match with the dates in API
                     if(dateSlicedVerif === dateTodayVerif){
 
                         // add on checker to show no games if checker is 0
@@ -217,21 +227,22 @@ fetch(URL_SCHEDULE, options1)
                         const addTeams = document.createElement("div");
                         addTeams.classList.add("teams-cont");
 
-                        // add para pour chaque game
+                        // add p for each games
                         addTeams.innerHTML = data.games[idSemaine].team1long +
                         "<em><div style='color:black; text-shadow:none; font-size:1.5rem; letter-spacing:1px; text-transform:lowercase; font-weight:600;'> vs </div></em>"+
                         data.games[idSemaine].team2long +
                         "<br>" + "<br>" +
                         timeSlicedMTL.substring(11) + " PM";
 
-                        // append dans le div
+                        // append in div
                         document.querySelector(".games-tonight").appendChild(addTeams);
                     }                    
                 }                       
             }                    
         }
+
+        // if checker is 0, display no games message
         if(gameChecker === 0){
-        // No games tonight
             const noGames = document.createElement("div");
             noGames.classList.add("teams-cont");
             noGames.innerHTML = "No games scheduled tonight...";
@@ -246,14 +257,16 @@ fetch(URL_SCHEDULE, options1)
 fetch(URL_STANDINGS, options1)
     .then(response => response.json())
     .then(data => {
-        // add header name
-        let groupA = document.getElementById("one");
-        groupA.querySelector(".conf-header").textContent = "Eastern Conference";
-        let groupB = document.getElementById("two");
-        groupB.querySelector(".conf-header").textContent = "Western Conference";
 
-        //EASTERN
+        // add header name
+        let eastConf = document.getElementById("one");
+        eastConf.querySelector(".conf-header").textContent = "Eastern Conference";
+        let westConf = document.getElementById("two");
+        westConf.querySelector(".conf-header").textContent = "Western Conference";
+
+        // EASTERN CONFERENCE
         for (const standings in data.conference["Eastern conference"]){
+
             // add team name
             let addName = document.createElement("p");
             addName.classList.add("conf-text");
@@ -281,8 +294,9 @@ fetch(URL_STANDINGS, options1)
             document.querySelector(".e-team").appendChild(addLoss);
         }
 
-        //WESTERN
+        // WESTERN CONFERENCE
         for (const standings in data.conference["Western conference"]){
+
             // add team name
             let addName = document.createElement("p");
             addName.classList.add("conf-text");
@@ -311,12 +325,10 @@ fetch(URL_STANDINGS, options1)
         }
     })
 .catch(err => console.error(err));
-    
-
-
-
 
 // ******************************************************************************************************* fetch stats
+
+// validate form on click
 window.addEventListener("load", function(){
     document.querySelector(".submit-label").addEventListener("click", validateForm);
     const playerStats = document.querySelector(".player-stats");
@@ -358,6 +370,7 @@ window.addEventListener("load", function(){
         fetch(`https://hockey-live-sk-data.p.rapidapi.com/player/${playerLastName}%20${playerFirstName}/NHL?key=cb7bb85fda71e55ea7aaf92950eebb89`, options2)
         .then(response => response.json())
         .then(data => {
+
             // display the fname + lname
             let nameTitle = document.querySelector(".name-title");
             nameTitle.textContent = playerFirstName + " " + playerLastName;
@@ -378,6 +391,7 @@ window.addEventListener("load", function(){
             let addPts = document.createElement("p");
             addPts.textContent = data.league[data.league.length-1].stats.points + " points";
 
+            // add active class
             playerStats.classList.add("active");
 
             // append all the childs
@@ -385,6 +399,7 @@ window.addEventListener("load", function(){
             document.querySelector(".player-stats").appendChild(addAssists);
             document.querySelector(".player-stats").appendChild(addPts); 
         })
+
         // display error if no player exists in database
         .catch(err => {
             console.error(err)
