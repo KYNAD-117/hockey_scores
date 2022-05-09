@@ -157,9 +157,7 @@ img[src="null"]{
     font-size: 1.25rem;
 }
 
-#teams,
-#league,
-#year{
+#teams{
     width: 25rem;
     height: 2.5rem;
     border-radius: 10px;
@@ -168,22 +166,6 @@ img[src="null"]{
     margin-bottom: 2rem;
     font-size: 1rem;
     box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.25);
-}
-
-#league,
-#year{
-    width: fit-content;
-    height: 2.5rem;
-    border-radius: 10px;
-    background-color: var(--jumbo);
-    color: rgba(255, 255, 255, 0.5);
-    margin: .75rem;
-    font-size: 1rem;
-    box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.25);
-}
-
-#year{
-    width: 7rem;
 }
 
 .select-standings{
@@ -358,7 +340,6 @@ img[src="null"]{
 }
 
 .player-stats.active{
-    /* background-color: #7C8086; */
     text-transform: uppercase;
     text-shadow: 3px 3px 2px #231F20;
     letter-spacing: 3px;
@@ -384,7 +365,6 @@ img[src="null"]{
 }
 
 .search-input{
-    /* width: 20rem; */
     display: grid;
 }
 
