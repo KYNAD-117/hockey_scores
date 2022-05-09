@@ -7,7 +7,7 @@ document.querySelector(".copyright-year").innerHTML = "ⓒ " + thisYear +  " Dan
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 const navMenu = document.querySelector(".nav-menu");
 
-window.addEventListener("load", () =>{
+window.addEventListener("load", function(){
     hamburgerMenu.addEventListener("click", menuMobile);
 
     function menuMobile() {
@@ -20,7 +20,7 @@ let logoHeader = document.getElementById("logo-header");
 let selectTeams = document.getElementById("teams");
 
 
-window.addEventListener("load", () =>{
+window.addEventListener("load", function(){
     document.querySelector(".save-btn").addEventListener("click", function(){
         switch (selectTeams.value){
             case "Ducks":
