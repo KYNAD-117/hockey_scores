@@ -21,7 +21,7 @@ let selectTeams = document.getElementById("teams");
 
 
 window.addEventListener("load", () =>{
-    document.querySelector(".save-btn").addEventListener("click", () => {
+    document.querySelector(".save-btn").addEventListener("click", function(){
         switch (selectTeams.value){
             case "Ducks":
                 sessionStorage.setItem("logoSrc", "./img/teams/Anaheim_Ducks.svg");
@@ -160,14 +160,11 @@ window.addEventListener("load", () =>{
 
 logoHeader.src = sessionStorage.getItem("logoSrc");
 
-let leagueStandings = document.getElementById("league").value;
-let yearStandings = document.getElementById("year").value;
-
 let league = "NHL";
 let year = "2021";
 
 // APIs url declared
-const URL_STANDINGS = `https://hockey-live-sk-data.p.rapidapi.com/table/${leagueStandings}/${yearStandings}?key=cb7bb85fda71e55ea7aaf92950eebb89`;
+const URL_STANDINGS = `https://hockey-live-sk-data.p.rapidapi.com/table/${league}/${year}?key=cb7bb85fda71e55ea7aaf92950eebb89`;
 const URL_SCHEDULE = `https://hockey-live-sk-data.p.rapidapi.com/games/${league}/${year}?key=cb7bb85fda71e55ea7aaf92950eebb89`;
 
 // ******************************************************************************************************* fetch schedule
@@ -208,7 +205,7 @@ fetch(URL_SCHEDULE, options1)
                 hourCycle: 'h23',
                 dateStyle: 'full',
                 timeStyle: 'full',
-            }).slice(10, 26);
+            }).slice(12, 28);
 
             if(data.games[idSemaine]){    
                 if(data.games[idSemaine].date){
@@ -245,151 +242,82 @@ fetch(URL_SCHEDULE, options1)
 
 // ******************************************************************************************************* fetch standings
 
-document.querySelector(".btn-standings").addEventListener("click", () => {
-    if(leagueStandings === "NHL"){
-    fetch(URL_STANDINGS, options1)
-        .then(response => response.json())
-        .then(data => {
-            // add header name
-            let groupA = document.getElementById("one");
-            groupA.querySelector(".conf-header").textContent = "Eastern Conference";
-            let groupB = document.getElementById("two");
-            groupB.querySelector(".conf-header").textContent = "Western Conference";
 
-            //EASTERN
-            for (const standings in data.conference["Eastern conference"]){
-                // add team name
-                let addName = document.createElement("p");
-                addName.classList.add("conf-text");
-                addName.textContent = data.conference["Eastern conference"][standings].clinch + "- " + data.conference["Eastern conference"][standings].longname;
+fetch(URL_STANDINGS, options1)
+    .then(response => response.json())
+    .then(data => {
+        // add header name
+        let groupA = document.getElementById("one");
+        groupA.querySelector(".conf-header").textContent = "Eastern Conference";
+        let groupB = document.getElementById("two");
+        groupB.querySelector(".conf-header").textContent = "Western Conference";
 
-                // add pts
-                let addPts = document.createElement("p");
-                addPts.classList.add("conf-text");
-                addPts.textContent = data.conference["Eastern conference"][standings].points;
+        //EASTERN
+        for (const standings in data.conference["Eastern conference"]){
+            // add team name
+            let addName = document.createElement("p");
+            addName.classList.add("conf-text");
+            addName.textContent = data.conference["Eastern conference"][standings].clinch + "- " + data.conference["Eastern conference"][standings].longname;
 
-                // add wins
-                let addWin = document.createElement("p");
-                addWin.classList.add("conf-text");
-                addWin.textContent = data.conference["Eastern conference"][standings].wins;
+            // add pts
+            let addPts = document.createElement("p");
+            addPts.classList.add("conf-text");
+            addPts.textContent = data.conference["Eastern conference"][standings].points;
 
-                // add losses
-                let addLoss = document.createElement("p");
-                addLoss.classList.add("conf-text");
-                addLoss.textContent = data.conference["Eastern conference"][standings].losts;
+            // add wins
+            let addWin = document.createElement("p");
+            addWin.classList.add("conf-text");
+            addWin.textContent = data.conference["Eastern conference"][standings].wins;
 
-                // append all the childs 
-                document.querySelector(".e-team").appendChild(addName);
-                document.querySelector(".e-team").appendChild(addPts);
-                document.querySelector(".e-team").appendChild(addWin);
-                document.querySelector(".e-team").appendChild(addLoss);
-            }
+            // add losses
+            let addLoss = document.createElement("p");
+            addLoss.classList.add("conf-text");
+            addLoss.textContent = data.conference["Eastern conference"][standings].losts;
 
-            //WESTERN
-            for (const standings in data.conference["Western conference"]){
-                // add team name
-                let addName = document.createElement("p");
-                addName.classList.add("conf-text");
-                addName.textContent = data.conference["Western conference"][standings].clinch + "- " + data.conference["Western conference"][standings].longname;
-
-                // add pts
-                let addPts = document.createElement("p");
-                addPts.classList.add("conf-text");
-                addPts.textContent = data.conference["Western conference"][standings].points;
-                
-                // add wins
-                let addWin = document.createElement("p");
-                addWin.classList.add("conf-text");
-                addWin.textContent = data.conference["Western conference"][standings].wins;
-
-                //add losses
-                let addLoss = document.createElement("p");
-                addLoss.classList.add("conf-text");
-                addLoss.textContent = data.conference["Western conference"][standings].losts;
-
-                // add all the childs
-                document.querySelector(".w-team").appendChild(addName);
-                document.querySelector(".w-team").appendChild(addPts);
-                document.querySelector(".w-team").appendChild(addWin);
-                document.querySelector(".w-team").appendChild(addLoss);
-            }
-        })
-    .catch(err => console.error(err));
-    }
-    else if(leagueStandings === "WJC"){
-        // Remove botton div
-        while (document.querySelector(".clinch").hasChildNodes()) {
-            document.querySelector(".clinch").removeChild(document.querySelector(".clinch").firstChild);
+            // append all the childs 
+            document.querySelector(".e-team").appendChild(addName);
+            document.querySelector(".e-team").appendChild(addPts);
+            document.querySelector(".e-team").appendChild(addWin);
+            document.querySelector(".e-team").appendChild(addLoss);
         }
 
-        // add new components
-        fetch(URL_STANDINGS, options1)
-            .then(response => response.json())
-            .then(data => {            
-                // add header name
-                let groupA = document.getElementById("one");
-                groupA.querySelector(".conf-header").textContent = "Group A";
-                let groupB = document.getElementById("two");
-                groupB.querySelector(".conf-header").textContent = "Group B";
+        //WESTERN
+        for (const standings in data.conference["Western conference"]){
+            // add team name
+            let addName = document.createElement("p");
+            addName.classList.add("conf-text");
+            addName.textContent = data.conference["Western conference"][standings].clinch + "- " + data.conference["Western conference"][standings].longname;
 
-                for (const position in data.group["A"]){
+            // add pts
+            let addPts = document.createElement("p");
+            addPts.classList.add("conf-text");
+            addPts.textContent = data.conference["Western conference"][standings].points;
+            
+            // add wins
+            let addWin = document.createElement("p");
+            addWin.classList.add("conf-text");
+            addWin.textContent = data.conference["Western conference"][standings].wins;
 
-                    let addName = document.createElement("p");
-                    addName.classList.add("conf-text");
-                    addName.textContent = data.group["A"][position].shortname;
+            //add losses
+            let addLoss = document.createElement("p");
+            addLoss.classList.add("conf-text");
+            addLoss.textContent = data.conference["Western conference"][standings].losts;
 
-                    let addPts = document.createElement("p");
-                    addPts.classList.add("conf-text");
-                    addPts.textContent = data.group["A"][position].points;
-
-                    let addWin = document.createElement("p");
-                    addWin.classList.add("conf-text");
-                    addWin.textContent = data.group["A"][position].wins;
-
-                    let addLoss = document.createElement("p");
-                    addLoss.classList.add("conf-text");
-                    addLoss.textContent = data.group["A"][position].losts;
-
-                    document.querySelector(".e-team").appendChild(addName);
-                    document.querySelector(".e-team").appendChild(addPts);
-                    document.querySelector(".e-team").appendChild(addWin);
-                    document.querySelector(".e-team").appendChild(addLoss);
-                }
-
-                for (const position in data.group["B"]){
-
-                    let addName = document.createElement("p");
-                    addName.classList.add("conf-text");
-                    addName.textContent = data.group["A"][position].shortname;
-
-                    let addPts = document.createElement("p");
-                    addPts.classList.add("conf-text");
-                    addPts.textContent = data.group["A"][position].points;
-
-                    let addWin = document.createElement("p");
-                    addWin.classList.add("conf-text");
-                    addWin.textContent = data.group["A"][position].wins;
-
-                    let addLoss = document.createElement("p");
-                    addLoss.classList.add("conf-text");
-                    addLoss.textContent = data.group["A"][position].losts;;
-
-                    document.querySelector(".w-team").appendChild(addName);
-                    document.querySelector(".w-team").appendChild(addPts);
-                    document.querySelector(".w-team").appendChild(addWin);
-                    document.querySelector(".w-team").appendChild(addLoss);
-
-                }
-            })
-            .catch(err => console.error(err));
-    }
-})
+            // add all the childs
+            document.querySelector(".w-team").appendChild(addName);
+            document.querySelector(".w-team").appendChild(addPts);
+            document.querySelector(".w-team").appendChild(addWin);
+            document.querySelector(".w-team").appendChild(addLoss);
+        }
+    })
+.catch(err => console.error(err));
+    
 
 
 
 
 // ******************************************************************************************************* fetch stats
-window.addEventListener("load", () =>{
+window.addEventListener("load", function(){
     document.querySelector(".submit-label").addEventListener("click", validateForm);
     const playerStats = document.querySelector(".player-stats");
 
