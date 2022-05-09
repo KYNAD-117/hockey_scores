@@ -346,13 +346,11 @@ img[src="null"]{
 
 #datePicker{
     margin-top: 2rem;
-    background-color: #39373A;
     color: var(--lowWhite);
-    padding: .75rem;
-    font-size: 1.25rem;
+    font-size: 1.75rem;
     border-radius: 10px;
     border: none;
-    cursor: pointer;
+    letter-spacing: 3px;
 }
 
 .season-title{

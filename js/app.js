@@ -180,8 +180,8 @@ fetch(URL_SCHEDULE, options1)
     .then(response => response.json())
     .then(data => {
         let dateCalendar = document.getElementById("datePicker");
-        dateCalendar.value = new Date(Date.now()).toISOString().split('T')[0];
-        
+        dateCalendar.textContent = new Date(Date.now()).toISOString().split('T')[0];
+
         // get today's date     
         let dateToday = new Date(Date.now() + (3600 * 1000 * 24)).toISOString().split('T')[0];
         
