@@ -190,6 +190,7 @@ fetch(URL_SCHEDULE, options1)
         
         // add a checker (if games tonight)
         let gameChecker = 0;
+        
 
         // loop to check if there are games today
         for (const idSemaine in data.games) {
@@ -203,14 +204,14 @@ fetch(URL_SCHEDULE, options1)
             var [date, time] = dateSliced.split(' ');
             var [year, month, day] = date.split('-');
             var [hour, minute] = time.split(':');
-
+            
             // display time on the game card
             var timeSlicedMTL = new Date(year, month-1, day, hour, minute,0).toLocaleString('en-CA', {
                 timeZone: 'Europe/Bratislava',
                 hourCycle: 'h23',
                 dateStyle: 'full',
                 timeStyle: 'full',
-            }).slice(12, 28);
+            }).slice(14, 30); //14,30 or 16,28
 
             // check if there are games in the API
             if(data.games[idSemaine]){   
