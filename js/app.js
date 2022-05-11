@@ -204,15 +204,16 @@ fetch(URL_SCHEDULE, options1)
             var [date, time] = dateSliced.split(' ');
             var [year, month, day] = date.split('-');
             var [hour, minute] = time.split(':');
-            
+            // console.log(dateSliced)
             // display time on the game card
             var timeSlicedMTL = new Date(year, month-1, day, hour, minute,0).toLocaleString('en-CA', {
                 timeZone: 'Europe/Bratislava',
                 hourCycle: 'h23',
-                dateStyle: 'full',
-                timeStyle: 'full',
-            }).slice(14, 30); //14,30 or 16,28
-
+                // dateStyle: 'full',
+                // timeStyle: 'full',
+            }).slice(0, -3)
+            // .slice(14, 30); //14,30 or 16,28
+            // console.log(timeSlicedMTL);
             // check if there are games in the API
             if(data.games[idSemaine]){   
                 
@@ -233,7 +234,7 @@ fetch(URL_SCHEDULE, options1)
                         "<em><div style='color:black; text-shadow:none; font-size:1.5rem; letter-spacing:1px; text-transform:lowercase; font-weight:600;'> vs </div></em>"+
                         data.games[idSemaine].team2long +
                         "<br>" + "<br>" +
-                        timeSlicedMTL.substring(11) + " PM";
+                        timeSlicedMTL.substring(12) + " PM";
 
                         // append in div
                         document.querySelector(".games-tonight").appendChild(addTeams);
