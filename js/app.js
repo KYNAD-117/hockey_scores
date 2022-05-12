@@ -9,7 +9,6 @@ const navMenu = document.querySelector(".nav-menu");
 // function to click on hamburger menu
 window.addEventListener("load", function(){
     hamburgerMenu.addEventListener("click", menuMobile);
-
     function menuMobile() {
         hamburgerMenu.classList.toggle("active");
         navMenu.classList.toggle("active");
@@ -180,7 +179,6 @@ const options1 = {
 fetch(URL_SCHEDULE, options1)
     .then(response => response.json())
     .then(data => {
-
         // display today's date on the schedule page
         let dateCalendar = document.getElementById("datePicker");
         dateCalendar.textContent = new Date(Date.now()).toISOString().split('T')[0];
@@ -190,11 +188,9 @@ fetch(URL_SCHEDULE, options1)
         
         // add a checker (if games tonight)
         let gameChecker = 0;
-        
 
         // loop to check if there are games today
         for (const idSemaine in data.games) {
-
             // slice date to (remove time)
             let dateTodayVerif = dateToday.slice(0,10);
             let dateSlicedVerif = data.games[idSemaine].date.slice(0,10);
@@ -204,25 +200,19 @@ fetch(URL_SCHEDULE, options1)
             var [date, time] = dateSliced.split(' ');
             var [year, month, day] = date.split('-');
             var [hour, minute] = time.split(':');
-            // console.log(dateSliced)
+
             // display time on the game card
             var timeSlicedMTL = new Date(year, month-1, day, hour, minute,0).toLocaleString('en-CA', {
                 timeZone: 'Europe/Bratislava',
                 hourCycle: 'h23',
-                // dateStyle: 'full',
-                // timeStyle: 'full',
             }).slice(0, -3)
-            // .slice(14, 30); //14,30 or 16,28
-            // console.log(timeSlicedMTL);
+
             // check if there are games in the API
             if(data.games[idSemaine]){   
-                
                 // check the date in the API
                 if(data.games[idSemaine].date){
-
                     // check to see if the date on today match with the dates in API
                     if(dateSlicedVerif === dateTodayVerif){
-
                         // add on checker to show no games if checker is 0
                         gameChecker++;
                                                    
@@ -254,12 +244,9 @@ fetch(URL_SCHEDULE, options1)
     .catch(err => console.error(err));
 
 // ******************************************************************************************************* fetch standings
-
-
 fetch(URL_STANDINGS, options1)
     .then(response => response.json())
     .then(data => {
-
         // add header name
         let eastConf = document.getElementById("one");
         eastConf.querySelector(".conf-header").textContent = "Eastern Conference";
@@ -268,7 +255,6 @@ fetch(URL_STANDINGS, options1)
 
         // EASTERN CONFERENCE
         for (const standings in data.conference["Eastern conference"]){
-
             // add team name
             let addName = document.createElement("p");
             addName.classList.add("conf-text");
@@ -298,7 +284,6 @@ fetch(URL_STANDINGS, options1)
 
         // WESTERN CONFERENCE
         for (const standings in data.conference["Western conference"]){
-
             // add team name
             let addName = document.createElement("p");
             addName.classList.add("conf-text");
@@ -329,7 +314,6 @@ fetch(URL_STANDINGS, options1)
 .catch(err => console.error(err));
 
 // ******************************************************************************************************* fetch stats
-
 // validate form on click
 window.addEventListener("load", function(){
     document.querySelector(".submit-label").addEventListener("click", validateForm);
@@ -367,12 +351,10 @@ window.addEventListener("load", function(){
                 'X-RapidAPI-Key': '749aa31749msh682c457b13ac752p18415ajsn3be27bc97888'
             }
         };
-        
-        // ******************************************************************************************************* fetch player stats
+        // fetch function
         fetch(`https://hockey-live-sk-data.p.rapidapi.com/player/${playerLastName}%20${playerFirstName}/NHL?key=cb7bb85fda71e55ea7aaf92950eebb89`, options2)
         .then(response => response.json())
         .then(data => {
-
             // display the fname + lname
             let nameTitle = document.querySelector(".name-title");
             nameTitle.textContent = playerFirstName + " " + playerLastName;
